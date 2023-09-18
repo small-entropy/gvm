@@ -7,7 +7,7 @@ import std.stdio : writeln;
  @("NEW: Создание стека")
 unittest
 {
-  alias StackData = byte[];
+  alias StackData = ubyte[];
   auto stack = new Stack!StackData();
   assert(stack);
 }
@@ -15,9 +15,9 @@ unittest
 @("PUSH: Добавление в стек")
 unittest
 {
-  alias StackData = byte[];
+  alias StackData = ubyte[];
   auto stack = new Stack!StackData();
-  byte[] element = [1];
+  ubyte[] element = [1];
   stack.push(element);
   assert(0 == stack.getPointer());
   stack.push(element);
@@ -30,10 +30,10 @@ unittest
 @("POP: Удаление из стека")
 unittest
 {
-  alias StackData = byte[];
+  alias StackData = ubyte[];
   auto stack = new Stack!StackData();
-  byte elem = 1;
-  byte[] element = [elem];
+  ubyte elem = 1;
+  ubyte[] element = [elem];
   stack.push(element);
   assert(1 == stack.size());
   assert(0 == stack.getPointer());
@@ -44,12 +44,12 @@ unittest
 @("TOP: Получение верхушки стека")
 unittest
 {
-  alias StackData = byte[];
+  alias StackData = ubyte[];
   auto stack = new Stack!StackData();
-  byte elem00 = 1;
-  byte elem01 = 2;
-  byte[] element00 = [elem00];
-  byte[] elemtnt01 = [elem01];
+  ubyte elem00 = 1;
+  ubyte elem01 = 2;
+  ubyte[] element00 = [elem00];
+  ubyte[] elemtnt01 = [elem01];
   stack.push(element00);
   stack.push(elemtnt01);
   auto fromStack = stack.top();
@@ -59,12 +59,12 @@ unittest
 @("SIZE: Получение длины стека")
 unittest
 {
-  alias StackData = byte[];
+  alias StackData = ubyte[];
   auto stack = new Stack!StackData();
-  byte elem00 = 1;
-  byte elem01 = 2;
-  byte[] element00 = [elem00];
-  byte[] elemtnt01 = [elem01];
+  ubyte elem00 = 1;
+  ubyte elem01 = 2;
+  ubyte[] element00 = [elem00];
+  ubyte[] elemtnt01 = [elem01];
   stack.push(element00);
   stack.push(elemtnt01);
   auto size = stack.size();
@@ -74,12 +74,12 @@ unittest
 @("POINTER: Получение индекса текущей вершины")
 unittest
 {
-  alias StackData = byte[];
+  alias StackData = ubyte[];
   auto stack = new Stack!StackData();
-  byte elem00 = 1;
-  byte elem01 = 2;
-  byte[] element00 = [elem00];
-  byte[] elemtnt01 = [elem01];
+  ubyte elem00 = 1;
+  ubyte elem01 = 2;
+  ubyte[] element00 = [elem00];
+  ubyte[] elemtnt01 = [elem01];
   stack.push(element00);
   stack.push(elemtnt01);
   auto pointer = stack.getPointer();
@@ -89,12 +89,12 @@ unittest
 @("JUMP: Прыжок по стеку")
 unittest
 {
-  alias StackData = byte[];
+  alias StackData = ubyte[];
   auto stack = new Stack!StackData();
-  byte elem00 = 1;
-  byte elem01 = 2;
-  byte[] element00 = [elem00];
-  byte[] elemtnt01 = [elem01];
+  ubyte elem00 = 1;
+  ubyte elem01 = 2;
+  ubyte[] element00 = [elem00];
+  ubyte[] elemtnt01 = [elem01];
   stack.push(element00);
   stack.push(elemtnt01);
   stack.jump(-1);
@@ -105,7 +105,7 @@ unittest
 @("IS_EMPTY: Проверка стека на пустоту (истина)")
 unittest
 {
-  alias StackData = byte[];
+  alias StackData = ubyte[];
   auto stack = new Stack!StackData();
   auto isEmpty = stack.isEmpty();
   assert(isEmpty);
@@ -114,10 +114,10 @@ unittest
 @("IS_EMPTY: Проверка стека на пустоту (ложь)")
 unittest
 {
-  alias StackData = byte[];
+  alias StackData = ubyte[];
   auto stack = new Stack!StackData();
-  byte elem = 1;
-  byte[] element = [elem];
+  ubyte elem = 1;
+  ubyte[] element = [elem];
   stack.push(element);
   auto isEmpty = stack.isEmpty();
   assert(isEmpty == false);

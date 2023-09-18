@@ -6,15 +6,15 @@ import std.stdio : writeln;
 @("NEW: Создание стека")
 unittest
 {
-  auto stack = new Stack!byte();
+  auto stack = new Stack!ubyte();
   assert(stack);
 }
 
 @("PUSH: Добавление в стек")
 unittest
 {
-  auto stack = new Stack!byte();
-  byte element = 1;
+  auto stack = new Stack!ubyte();
+  ubyte element = 1;
   stack.push(element);
   assert(0 == stack.getPointer());
   stack.push(element);
@@ -27,8 +27,8 @@ unittest
 @("POP: Удаление из стека")
 unittest
 {
-  auto stack = new Stack!byte();
-  byte element = 1;
+  auto stack = new Stack!ubyte();
+  ubyte element = 1;
   stack.push(element);
   assert(1 == stack.size());
   assert(0 == stack.getPointer());
@@ -39,9 +39,9 @@ unittest
 @("TOP: Получение верхушки стека")
 unittest
 {
-  auto stack = new Stack!byte();
-  byte element00 = 1;
-  byte elemtnt01 = 2;
+  auto stack = new Stack!ubyte();
+  ubyte element00 = 1;
+  ubyte elemtnt01 = 2;
   stack.push(element00);
   stack.push(elemtnt01);
   auto fromStack = stack.top();
@@ -51,9 +51,9 @@ unittest
 @("SIZE: Получение длины стека")
 unittest
 {
-  auto stack = new Stack!byte();
-  byte element00 = 1;
-  byte elemtnt01 = 2;
+  auto stack = new Stack!ubyte();
+  ubyte element00 = 1;
+  ubyte elemtnt01 = 2;
   stack.push(element00);
   stack.push(elemtnt01);
   auto size = stack.size();
@@ -63,9 +63,9 @@ unittest
 @("POINTER: Получение индекса текущей вершины")
 unittest
 {
-  auto stack = new Stack!byte();
-  byte element00 = 1;
-  byte elemtnt01 = 2;
+  auto stack = new Stack!ubyte();
+  ubyte element00 = 1;
+  ubyte elemtnt01 = 2;
   stack.push(element00);
   stack.push(elemtnt01);
   auto pointer = stack.getPointer();
@@ -75,9 +75,9 @@ unittest
 @("JUMP: Прыжок по стеку")
 unittest
 {
-  auto stack = new Stack!byte();
-  byte element00 = 1;
-  byte elemtnt01 = 2;
+  auto stack = new Stack!ubyte();
+  ubyte element00 = 1;
+  ubyte elemtnt01 = 2;
   stack.push(element00);
   stack.push(elemtnt01);
   stack.jump(-1);
@@ -88,7 +88,7 @@ unittest
 @("IS_EMPTY: Проверка стека на пустоту (истина)")
 unittest
 {
-  auto stack = new Stack!byte();
+  auto stack = new Stack!ubyte();
   auto isEmpty = stack.isEmpty();
   assert(isEmpty);
 }
@@ -96,8 +96,8 @@ unittest
 @("IS_EMPTY: Проверка стека на пустоту (ложь)")
 unittest
 {
-  auto stack = new Stack!byte();
-  byte element = 1;
+  auto stack = new Stack!ubyte();
+  ubyte element = 1;
   stack.push(element);
   auto isEmpty = stack.isEmpty();
   assert(isEmpty == false);
