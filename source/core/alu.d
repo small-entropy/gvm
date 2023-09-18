@@ -3,6 +3,7 @@ module core.alu;
 import std.conv;
 import core.stack : Stack;
 import std.outbuffer : OutBuffer;
+import std.bitmanip : read;
 
 private enum Instuction : ubyte
 {
@@ -39,8 +40,8 @@ public class ArithmeticLogicUnit
 
     public void push()
     {
-        front = ds.top();
-        rs.push(item);
+        auto front = ds.top();
+        rs.push(front);
         ds.pop();
         os.pop();
     }
@@ -58,12 +59,12 @@ public class ArithmeticLogicUnit
         auto second = rs.top();
         rs.pop();
 
-        auto res = to!int(first) + to!int(second);
+        auto res = 	first.read!uint() + second.read!uint();
 
         OutBuffer buffer = new OutBuffer();    
         buffer.write(res);
 
-        rs.push(res);
+        rs.push(buffer.toBytes());
     }
 
     public void sub()
@@ -73,12 +74,12 @@ public class ArithmeticLogicUnit
         auto second = rs.top();
         rs.pop();
 
-        auto res = to!int(first) - to!int(second);
+        auto res = 	first.read!uint() - second.read!uint();
 
         OutBuffer buffer = new OutBuffer();    
         buffer.write(res);
 
-        rs.push(res);
+        rs.push(buffer.toBytes());
     }
 
     public void div()
@@ -88,12 +89,12 @@ public class ArithmeticLogicUnit
         auto second = rs.top();
         rs.pop();
 
-        auto res = to!int(first) / to!int(second);
+        auto res = 	first.read!uint() / second.read!uint();
     
         OutBuffer buffer = new OutBuffer();    
         buffer.write(res);
 
-        rs.push(res);
+        rs.push(buffer.toBytes());
     }
 
     public void mul()
@@ -103,12 +104,12 @@ public class ArithmeticLogicUnit
         auto second = rs.top();
         rs.pop();
 
-        auto res = to!int(first) * to!int(second);
+        auto res = 	first.read!uint() * second.read!uint();
     
         OutBuffer buffer = new OutBuffer();    
         buffer.write(res);
 
-        rs.push(res);
+        rs.push(buffer.toBytes());
     }
 
     public void swap() 
@@ -134,7 +135,7 @@ public class ArithmeticLogicUnit
         auto bPointer = ds.top();
         ds.pop();
         os.pop();
-        auto pointer = to!int(bPointer);
+        auto pointer = 	bPointer.read!ushort();
         ds.jump(pointer);
         os.jump(pointer);
     }
