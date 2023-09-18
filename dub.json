@@ -1,0 +1,13 @@
+{
+	"authors": [
+		"Дмитрий Шевелев"
+	],
+	"copyright": "Copyright © 2023, Дмитрий Шевелев",
+	"dependencies": {
+		"jcli": "~>0.24.0",
+		"silly": "~>1.1.1"
+	},
+	"description": "Virtual machine for Gefal language",
+	"license": "GNU GPLv3",
+	"name": "gefal-virtual-machine"
+}
